@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  content: MyText
+  author: MyString
+  date_of_event: 2017-04-20
+  location: MyString
+  likes: 1
+  dislikes: 1
+
+two:
+  content: MyText
+  author: MyString
+  date_of_event: 2017-04-20
+  location: MyString
+  likes: 1
+  dislikes: 1

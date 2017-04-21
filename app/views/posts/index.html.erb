@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Posts</h1>
+
+    <% @posts.each do |post| %>
+      <div class="post">
+        <p class="post_author"><%= post.author[0, 1] %></p>
+        <h3 class="post_title"><%= post.title %></h3>
+        
+        <p class="post_content"><%= post.content %></p>
+        <p class="hidden"><%= post.date_of_event %></p>
+        <p class="hidden"><%= post.location %></p>
+        <div class="post_likes">
+          <p>Likes: <%= post.likes %></p>
+          <p>Dislikes: <%= post.dislikes %></p>
+        </div>
+        <div class="post_options">
+          <p><%= link_to 'Show', post %></p>
+          <p><%= link_to 'Edit', edit_post_path(post) %></p>
+          <p><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+        </div>
+        
+        
+      </div>
+        
+    <% end %>
+
+<br>
+
+<%= link_to 'New Post', new_post_path %>
