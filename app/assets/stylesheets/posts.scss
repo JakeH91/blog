@@ -97,6 +97,13 @@
 	}
 }
 
+.post-title,
+.post-author {
+	display: inline-block;
+	float: left;
+	margin-right: 20px;
+}
+
 .post-submit {
 	clear: both;
 }

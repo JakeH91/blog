@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Posts</h1>
-
+  <% if @posts.exists? %>
     <% @posts.each do |post| %>
       <div class="post">
         <p class="post_author"><%= post.author[0, 1] %></p>
@@ -24,5 +24,7 @@
       </div>
         
     <% end %>
-
+  <% else %>
+    <p>Currently No Posts</p>
+  <% end %>
 <br>
