@@ -1,10 +1,13 @@
 body {
-  background-color: lightgray;
+  background-color: #c7d7c7;
   color: #333;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
-  margin: 33px;
+}
+
+.container {
+  margin-top: 40px;
 }
 
 p, ol, ul, td {
@@ -86,4 +89,41 @@ div {
 
 label {
   display: block;
+}
+
+/* NAVIGATION */
+
+nav {
+  background-color: #540000;
+  .navbar-header {
+    margin-top: 5px;
+    a:hover {
+      background-color: unset;
+    }
+  }
+  ul {
+    form {
+      margin-top: 8px;
+      margin-left: 8px;
+    }
+  }
+}
+
+/* FOOTER */
+
+footer {
+  height: 41px;
+  border-top: 1px solid darkgrey;
+  background-color: lightgrey; 
+}
+
+#copyright {
+  display: inline-block;
+  margin: 10px 5px;
+  height: 20px;
+  float: right;
+}
+
+#copyright p {
+  margin: 0;
 }

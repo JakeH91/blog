@@ -15,38 +15,31 @@
     <%= f.label :title %>
     <%= f.text_field :title %>
   </div>
-
-  <div class="field">
+  <div class="field post-content">
     <%= f.label :content %>
     <%= f.text_area :content %>
   </div>
+ 
+  <div class="post-options">   
+    <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+    <div class="field hidden">
+      <span class="glyphicon glyphicon-remove hidden"></span>
+      <%= f.label :date_of_event %>
+      <%= f.date_select :date_of_event, { :end_year => Date.today.year - 1000, :start_year => Date.today.year } %>
+    </div>
+    
+    <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
+    <div class="field hidden">
+      <span class="glyphicon glyphicon-remove hidden"></span>
+      <%= f.label :location %>
+      <%= f.text_field :location %>
+    </div>  
 
-  <div class="field">
-    <%= f.label :author %>
-    <%= f.text_field :author %>
+    <span class="glyphicon glyphicon-camera" aria-hidden="true"></span>
   </div>
+  
 
-  <div class="field">
-    <%= f.label :date_of_event %>
-    <%= f.date_select :date_of_event, { :end_year => Date.today.year - 1000, :start_year => Date.today.year } %>
-  </div>
-
-  <div class="field">
-    <%= f.label :location %>
-    <%= f.text_field :location %>
-  </div>
-
-  <div class="field">
-    <%= f.label :likes %>
-    <%= f.number_field :likes %>
-  </div>
-
-  <div class="field">
-    <%= f.label :dislikes %>
-    <%= f.number_field :dislikes %>
-  </div>
-
-  <div class="actions">
+  <div class="actions post-submit">
     <%= f.submit %>
   </div>
 <% end %>

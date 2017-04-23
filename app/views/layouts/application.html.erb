@@ -2,10 +2,13 @@
 <html>
 <head>
   <title>Blog</title>
-  <%= csrf_meta_tags %>
-
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%= csrf_meta_tags %>
 </head>
 
 <body data-target=".navbar">
@@ -25,12 +28,16 @@
           <span class="icon-bar"></span>
         </button>
         
-        <%= link_to image_tag("bee_nav_logo.png"), '../static_pages/index', :id => "logo" %>
+        <%= link_to image_tag("globe-logo.png"), root_path, :id => "logo" %>
+        
       
       </div> <!--end navbar-header -->
 
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
+        	<li><%= button_to "New Post", new_post_path, {method: "get", :class => "btn btn-success"} %></li>
+        	<li><%= link_to "Notifications", '#' %></li>
+        	<li><%= link_to "Messages", '#' %></li>
           <li><%= link_to "Profile", '#' %></li>
           
         </ul>
@@ -41,13 +48,15 @@
   <!-- end NAVBAR -->
 
   <!-- MAIN CONTENT -->
-  <%= yield %>
+  <div class="container">
+  	<%= yield %>
+  </div>
   <!-- end MAIN CONTENT -->
 
 
   <!-- FOOTER -->
   <footer>
-    <div  id="copyright">
+    <div id="copyright">
       <a href="http://physiotherapist-dog-70104.bitballoon.com/"><p>&copy; Jake Hill 2017</p></a>
     </div>
   </footer>
