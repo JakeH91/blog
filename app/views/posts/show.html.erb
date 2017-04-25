@@ -1,39 +1,33 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
+<div class="post show-post">
+  <h3 class="post-title">
+    <strong><%= @post.title %></strong>
+  </h3>
 
-<p>
-  <strong>Content:</strong>
-  <%= @post.content %>
-</p>
+  <p class="show-post-author">
+    by: 
+    <em><%= @post.author %></em>
+  </p>
 
-<p>
-  <strong>Author:</strong>
-  <%= @post.author %>
-</p>
+  <p class="show-post-content">
+    <%= @post.content %>
+  </p>
 
-<p>
-  <strong>Date of event:</strong>
-  <%= @post.date_of_event %>
-</p>
+  <div class="post_data">
+    <p><%= @post.date_of_event %>, <%= @post.location %></p>  
+  </div>
 
-<p>
-  <strong>Location:</strong>
-  <%= @post.location %>
-</p>
 
-<p>
-  <strong>Likes:</strong>
-  <%= @post.likes %>
-</p>
+  <div class="post_likes">
+    <p>Likes: <%= @post.likes %></p>
+    <p>Dislikes: <%= @post.dislikes %></p>
+  </div>  
+</div>
 
-<p>
-  <strong>Dislikes:</strong>
-  <%= @post.dislikes %>
-</p>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+<div class="post_options">
+  <%= link_to 'Edit', edit_post_path(@post) %> |
+  <%= link_to 'Back', posts_path %>  
+</div>
+

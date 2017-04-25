@@ -7,6 +7,7 @@
 }
 
 .post {
+	padding: 33px;
 	margin-left: 90px;
 	margin-right: 90px;
 	margin-bottom: 30px;
@@ -17,18 +18,17 @@
 
 .post_author {
 	position: absolute;
-	margin-left: -60px;
+	margin-left: -80px;
 	margin-top: 0;
 	border: 1px solid black;
-	padding: 14px 18px;
+	padding: 10px 16px;
 	border-radius: 40px;
 	background-color: white;
-	width: 10px;
 	text-align: center;
 }
 
 .post_title {
-	margin-left: 5px;
+	margin: 0;
 }
 
 .post_likes {
@@ -47,16 +47,55 @@
 	clear: both;
 }
 
+.post_data {
+	float: left;
+	p {
+		margin: 0;
+		color: grey;
+		font-size: 12px;
+	}
+}
+
+// SHOW
+.show-post {
+	margin-top: 30px;
+}
+
+.show-post-author {
+	margin: 8px 0 0;
+}
+
+.show-post-content{
+	width: 100%;
+}
 
 // NEW
+.post-title {
+	margin: 0;
+}
+
+.post-title,
+.post-author {
+	display: inline-block;
+	float: left;
+	margin-right: 20px;
+}
+
 .post-content {
 	width: 80%;
+}
+
+.post-content,
+.show-post-content {
+	margin: 20px 0 30px;
 	float: left;
 	textarea {
 		width: 100%;
 		height: 350px;
 	}
 }
+
+
 
 .post-options {
 	margin-top: 50px;
@@ -97,12 +136,7 @@
 	}
 }
 
-.post-title,
-.post-author {
-	display: inline-block;
-	float: left;
-	margin-right: 20px;
-}
+
 
 .post-submit {
 	clear: both;
