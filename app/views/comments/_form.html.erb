@@ -1,0 +1,44 @@
+<%= form_for(comment) do |f| %>
+  <% if comment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+
+      <ul>
+      <% comment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :content, class: "hidden" %>
+    <%= f.text_area :content, options = {class: "post_create_comment_content", placeholder: "Enter Comment..."} %>
+  </div>
+  
+  <div class="actions post_create_comment_submit">
+    <%= f.submit %>
+  </div>
+  
+  <div class="field post_create_comment_author">
+    <%= f.label :author, class: "hidden" %>
+    <%= f.text_field :author, placeholder: "Your Name..."%>
+  </div>
+
+  <div class="field hidden">
+    <%= f.label :post_id %>
+    <%= f.number_field :post_id, :value => yield(:post_id).to_i %>
+  </div>
+
+  <div class="field hidden">
+    <%= f.label :likes %>
+    <%= f.number_field :likes %>
+  </div>
+
+  <div class="field hidden">
+    <%= f.label :dislikes %>
+    <%= f.number_field :dislikes %>
+  </div>
+
+  
+<% end %>

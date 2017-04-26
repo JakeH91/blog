@@ -14,15 +14,28 @@
           <p>Likes: <%= post.likes %></p>
           <p>Dislikes: <%= post.dislikes %></p>
         </div>
+        
         <div class="post_options">
           <p><%= link_to 'Show', post %></p>
           <p><%= link_to 'Edit', edit_post_path(post) %></p>
           <p><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></p>
         </div>
         
+
         
       </div>
-        
+      <div class="post_comments">
+        <h5><strong>Comments</strong></h5>
+        <% if post.comments.exists? %>
+          <div class="post_comment no-border">
+            <p class="post_comment_author"><%= post.comments.first.author[0, 1] %></p>
+            <p class="post_comment_content"><%= post.comments.first.content %></p>
+            <p class="post_comment_see_more"><%= link_to 'See More', post %></p>
+          </div>  
+        <% else %>
+          <p>Currently No Comments</p>
+        <% end %>
+      </div> 
     <% end %>
   <% else %>
     <p>Currently No Posts</p>
