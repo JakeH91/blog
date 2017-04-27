@@ -36,7 +36,7 @@
     <div class="field hidden">
       <span class="glyphicon glyphicon-remove hidden"></span>
       <%= f.label :location %>
-      <%= f.text_field :location %>
+      <%= f.text_field :location, :id => 'autocomplete', :placeholder => 'Enter a location...' %>
     </div>  
 
     <span class="glyphicon glyphicon-camera" aria-hidden="true"></span>
@@ -47,3 +47,15 @@
     <%= f.submit %>
   </div>
 <% end %>
+
+<script>
+  var autocomplete;
+
+  function initAutocomplete() {
+        // Create the autocomplete object, restricting the search to geographical
+        // location types.
+        autocomplete = new google.maps.places.Autocomplete(
+            /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
+            {types: ['geocode']});
+      }
+</script>
