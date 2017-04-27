@@ -1,14 +1,10 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-
+ 
   # GET /posts
   # GET /posts.json
-  def index
-    if params[:sort].present?
-      @posts = Post.all.reverse
-    else
-      @posts = Post.all
-    end
+  def index(order = Post.all)
+    @posts = order
   end
 
   # GET /posts/1

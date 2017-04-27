@@ -2,27 +2,30 @@
 
 <h1>Posts</h1>
   <% if @posts.exists? %>
-    <%#  newestPosts = @posts.reverse 
-        oldestPosts = @posts 
-        oldestEvents = @posts.sort_by{|post| post[:date_of_event]}
-        newestEvents = oldestEvents.reverse 
+    
+
+    <!-- Been trying to figure out how to sort for a billion years.
+    Omar has said it will come up in the next exercises so I shouldn't do it now. -->
+    <%  @newestPosts = Post.all.reverse 
+        @oldestPosts = Post.all 
+        @oldestEvents = Post.all.sort_by{|post| post[:date_of_event]}
+        @newestEvents = @oldestEvents.reverse 
     %>
 
     <li class="dropdown">
       <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sort By<b class="caret"></b></a>
       <ul class="dropdown-menu">
-        <!-- We are passing the sort parameter here -->
-        <li><a href="?sort=1">Newest(Submitted)</a></li>
-        <li><a href="?sort=2">Oldest(Submitted)</a></li>
-        <li><a href="?sort=3">Newest(Event)</a></li>
-        <li><a href="?sort=4">Oldest(Event)</a></li>
+        <li><%= link_to "Newest(Submitted)", posts_path(@newestPosts) %></li>
+        <li><%= link_to "Oldest(Submitted)", posts_path(@oldestPosts) %></li>
+        <li><%= link_to "Newest(Event)", posts_path(@newestEvents) %></li>
+        <li><%= link_to "Oldest(Event)", posts_path(@oldestEvents) %></li>
       </ul>
     </li>
     
     <% @posts.each do |post| %>
       <div class="post">
         <p class="post_author"><%= post.author[0, 1] %></p>
-        <h3 class="post_title"><%= post.title %></h3>
+        <h3 class="post_title"><%= link_to post.title, post %></h3>
         
         <p class="post_content"><%= post.content %></p>
         <p class="hidden"><%= post.date_of_event %></p>
@@ -32,11 +35,10 @@
           <p>Dislikes: <%= post.dislikes %></p>
         </div>
         
-        <div class="post_options">
-          <p><%= link_to 'Show', post %></p>
-          <p><%= link_to 'Edit', edit_post_path(post) %></p>
-          <p><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></p>
-        </div>
+<!--         <div class="post_options">
+          <p><%#= link_to 'Edit', edit_post_path(post) %></p>
+          <p><%#= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+        </div> -->
         
 
         
