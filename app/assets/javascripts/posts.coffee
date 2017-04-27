@@ -3,7 +3,6 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).on "turbolinks:load", ->
-	console.log("JS Working")
 	$(".post-options .glyphicon").on "click", ->
 	 	if($(this).hasClass("glyphicon-camera"))
 
