@@ -5,7 +5,7 @@
     <% @posts.each do |post| %>
       <div class="post">
         <p class="post_author"><%= post.author[0, 1] %></p>
-        <h3 class="post_title"><%= link_to post.title, post %></h3>
+        <h3 class="post_title"><%= post.title %></h3>
         
         <p class="post_content"><%= post.content %></p>
         <p class="hidden"><%= post.date_of_event %></p>
@@ -27,7 +27,7 @@
       <div class="post_comments">
         <h5><strong>Comments</strong></h5>
         <% if post.comments.exists? %>
-          <div class="post_comment single_comment">
+          <div class="post_comment no-border">
             <p class="post_comment_author"><%= post.comments.first.author[0, 1] %></p>
             <p class="post_comment_content"><%= post.comments.first.content %></p>
             <p class="post_comment_see_more"><%= link_to 'See More', post %></p>

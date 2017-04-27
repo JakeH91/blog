@@ -60,8 +60,6 @@ GEM
     ffi (1.9.18)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
-    gmaps-autocomplete-rails (0.3.1)
-      rails (>= 3.1.0)
     i18n (0.8.1)
     jbuilder (2.6.3)
       activesupport (>= 3.0.0, < 5.2)
@@ -165,7 +163,6 @@ DEPENDENCIES
   bootstrap (~> 4.0.0.alpha6)
   byebug
   coffee-rails (~> 4.2)
-  gmaps-autocomplete-rails
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)

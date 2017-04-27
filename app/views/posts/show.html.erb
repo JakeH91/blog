@@ -31,7 +31,7 @@
     <%= render "comments/form", comment: @comment %>
     <% if @post.comments.exists? %>
       <% if @post.comments.length > 1 %>
-        <% @post.comments.reverse.each do |comment| %>
+        <% @post.comments.each do |comment| %>
           <div class="post_comment">
             <p class="post_comment_author"><%= comment.author[0, 1] %></p>
             <p class="post_comment_content"><%= comment.content %></p>
