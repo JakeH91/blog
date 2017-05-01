@@ -3,8 +3,20 @@ class PostsController < ApplicationController
  
   # GET /posts
   # GET /posts.json
-  def index(order = Post.all)
-    @posts = order
+  def index
+    if params[:order]
+      #order the posts
+      order = params[:order]
+      if order == "newSub" 
+        @posts = Post.all.reverse
+      elsif order == "oldEv"
+        @posts = Post.all.sort_by{|post| post[:date_of_event]}
+      elsif order == "newEv"
+        @posts = Post.all.sort_by{|post| post[:date_of_event]}.reverse
+      end
+    else
+      @posts = Post.all
+    end
   end
 
   # GET /posts/1
