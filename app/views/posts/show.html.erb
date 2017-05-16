@@ -8,7 +8,7 @@
 
   <p class="show-post-author">
     by: 
-    <em><%= @post.author %></em>
+    <em><%= @post.user_id %></em>
   </p>
 
   <p class="show-post-content">
@@ -33,13 +33,13 @@
       <% if @post.comments.length > 1 %>
         <% @post.comments.reverse.each do |comment| %>
           <div class="post_comment">
-            <p class="post_comment_author"><%= comment.author[0, 1] %></p>
+            <p class="post_comment_author"><%= comment.user_id %></p>
             <p class="post_comment_content"><%= comment.content %></p>
           </div>  
         <% end %>
       <% else %>
         <div class="post_comment no-border">
-          <p class="post_comment_author"><%= @post.comments.first.author[0, 1] %></p>
+          <p class="post_comment_author"><%= @post.comments.first.user_id %></p>
           <p class="post_comment_content"><%= @post.comments.first.content %></p>
         </div> 
       <% end %>

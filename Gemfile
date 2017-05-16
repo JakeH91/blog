@@ -24,6 +24,9 @@ gem 'jbuilder', '~> 2.5'
 # Use bootstrap as framework
 gem 'bootstrap', '~> 4.0.0.alpha6'
 
+# For user security and passwords etc.
+gem 'devise'
+
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
