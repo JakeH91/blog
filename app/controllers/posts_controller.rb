@@ -9,14 +9,14 @@ class PostsController < ApplicationController
       #order the posts
       order = params[:order]
       if order == "newSub" 
-        @posts = Post.all.reverse
+        @posts = Post.paginate(:page => params[:page], :per_page => 10).order("created_at DESC")
       elsif order == "oldEv"
-        @posts = Post.all.sort_by{|post| post[:date_of_event]}
+        @posts = Post.paginate(:page => params[:page], :per_page => 10).order("date_of_event DESC")
       elsif order == "newEv"
-        @posts = Post.all.sort_by{|post| post[:date_of_event]}.reverse
+        @posts = Post.paginate(:page => params[:page], :per_page => 10).order("date_of_event ASC")
       end
     else
-      @posts = Post.all
+      @posts = Post.paginate(:page => params[:page], :per_page => 10)
     end
   end
 

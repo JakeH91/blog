@@ -1,4 +1,5 @@
-<h1>Posts</h1>
+  
+  <h1>Posts</h1>
   <% if Post.exists? %>
 
     <li class="dropdown">
@@ -32,13 +33,17 @@
             <p class="post_comment_author"><%= post.comments.last.user.first_name[0, 1] %></p>
             <p class="post_comment_content"><%= post.comments.last.content %></p>
             <p class="post_comment_see_more"><%= link_to 'See More', post %></p>
-          </div>  
+          </div>
+
         <% else %>
           <p>Currently No Comments</p>
         <% end %>
-      </div> 
+      </div>
+
     <% end %>
+    <%= will_paginate @posts %>
   <% else %>
     <p>Currently No Posts</p>
   <% end %>
+
 <br>
