@@ -121,8 +121,7 @@
 	margin: 0;
 }
 
-.post-title,
-.post-author {
+.post-title {
 	display: inline-block;
 	float: left;
 	margin-right: 20px;
@@ -135,6 +134,7 @@
 .post-content,
 .show-post-content {
 	margin: 20px 0 30px;
+	clear: both;
 	float: left;
 	textarea {
 		width: 100%;

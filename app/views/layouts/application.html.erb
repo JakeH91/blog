@@ -35,7 +35,7 @@
 
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
-        	<li><%= button_to "New Post", new_post_path, {method: "get", :class => "btn btn-success"} %></li>
+        	<li><%= button_to "New Post", new_post_path, {method: "get", :class => "btn btn-success nav-btn"} %></li>
         	<li><%= link_to "Notifications", '#' %></li>
         	<li><%= link_to "Messages", '#' %></li>
           <li>
@@ -61,8 +61,12 @@
   <!-- end NAVBAR -->
 
   <!-- MAIN CONTENT -->
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+  <% if notice %>
+      <p class="notice"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert"><%= alert %></p>
+    <% end %>
   <div class="container">
   	<%= yield %>
   </div>

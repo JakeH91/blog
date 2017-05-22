@@ -100,12 +100,29 @@ nav {
       background-color: unset;
     }
   }
-  ul {
+  .nav {
+    .nav-btn {
+      margin-right: 10px;
+    }
+    a {
+      color: #5cb85c;
+      
+      &:hover {
+        background-color: #5cb85c;
+        color: #540000;
+      }
+    }
     form {
       margin-top: 8px;
       margin-left: 8px;
     }
   }
+}
+
+/* ALERTS AND NOTICES */
+.alert,
+.notice {
+  margin-top: 50px; 
 }
 
 /* FOOTER */
