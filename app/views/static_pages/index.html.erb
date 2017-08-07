@@ -6,18 +6,22 @@
 	
 	<div class="row">
 		<div class="col-sm-4 col-xs-12 icon">
-			<div>
-				<%= image_tag("read.png") %>
-			</div>
-			<h3>Read</h3>
+			<%= link_to posts_path do %>
+				<div>
+					<%= image_tag("read.png") %>
+				</div>
+				<h3>Read</h3>
+			<% end %>
 			<p>Whether you are trying to find the best places to visit in the summer, or want to find out what was happening in Bangkok last February, there is something here for everyone.</p>
 		</div> <!-- END icon -->
 		
 		<div class="col-sm-4 col-xs-12 icon">
-			<div>
-				<%= image_tag("write.png") %>
-			</div>
-			<h3>Write</h3>
+			<%= link_to new_post_path do %>
+				<div>
+					<%= image_tag("write.png") %>
+				</div>
+				<h3>Write</h3>
+			<% end %>
 			<p>Tell the world where you've been and what you got up to. Write about a single place, or take us on the entire adventure!</p>
 		</div> <!-- END icon -->
 		
