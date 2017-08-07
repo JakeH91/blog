@@ -1,0 +1,46 @@
+// Place all the styles related to the static_pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#banner {
+	position: relative;
+	width: 100%;
+}
+
+.welcome_page {
+	margin: 0 10%;
+	h1, p {
+		text-align: center;
+	}
+	p {
+		margin-bottom: 30px;
+	}
+}
+
+.icon {
+	text-align: center;
+	div {
+		width: 	90px;
+		height: 90px;
+		border: 4px solid #38761d;
+		border-radius: 45px;
+		margin: auto;
+		img {
+			position: relative;
+			top: 7px;
+		}
+	}
+	h3 {
+		margin-top: 10px;
+		color: #38761d;
+	}
+}
+
+.callToAction {
+	text-align: center;
+	background-color: #f9f9f9;
+	border: 1px solid #eee;
+	padding: 20px;
+	margin: 0 -10% 20px;
+}
+

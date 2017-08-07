@@ -1,0 +1,37 @@
+<%= image_tag("blog_banner.jpg", id: "banner") %>
+
+<div class="welcome_page">
+	<h1>Welcome to Travelog</h1>
+	<p>Come and join our growing community of traveling writers, see what the world has to offer and take part yourself!</p>
+	
+	<div class="row">
+		<div class="col-sm-4 col-xs-12 icon">
+			<div>
+				<%= image_tag("read.png") %>
+			</div>
+			<h3>Read</h3>
+			<p>Whether you are trying to find the best places to visit in the summer, or want to find out what was happening in Bangkok last February, there is something here for everyone.</p>
+		</div> <!-- END icon -->
+		
+		<div class="col-sm-4 col-xs-12 icon">
+			<div>
+				<%= image_tag("write.png") %>
+			</div>
+			<h3>Write</h3>
+			<p>Tell the world where you've been and what you got up to. Write about a single place, or take us on the entire adventure!</p>
+		</div> <!-- END icon -->
+		
+		<div class="col-sm-4 col-xs-12 icon">
+			<div>
+				<%= image_tag("connect.png") %>	
+			</div>
+			<h3>Connect</h3>
+			<p>Reach out to other travellers. Did someone write something that really hit home for you? Is there someone travelling in the same places as you right now? Send them a message.</p>
+		</div> <!-- END icon -->
+	</div> <!-- END row -->
+
+	<div class="callToAction">
+		<h4>Sign up now and start taking part.</h4>
+		<%= button_to "Sign Up", new_user_registration_path, {method: "get", :class => "btn btn-primary"} %>
+	</div>
+</div> <!-- END welcome_page -->
