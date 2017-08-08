@@ -1,3 +1,8 @@
+
+$primary-brown: #600;
+$primary-green: #5cb85c;
+$secondary-green: #38761d;
+
 body {
   background-color: white;
 
@@ -7,7 +12,7 @@ body {
 }
 
 h1 {
-  color: #600;
+  color: $primary-brown;
   font-family: "Merriweather", serif;
 }
 
@@ -104,7 +109,7 @@ label {
 /* NAVIGATION */
 
 nav {
-  background-color: #600;
+  background-color: $primary-brown;
   .navbar-header {
     margin-top: 5px;
     a:hover {
@@ -115,18 +120,48 @@ nav {
     .nav-btn {
       margin-right: 10px;
     }
-    a {
-      color: #5cb85c;
-      
-      &:hover {
-        background-color: #5cb85c;
-        color: #540000;
+
+    .userNav {
+      a {
+        color: $primary-green;
+        
+        &:hover {
+          background-color: $primary-green;
+          color: $primary-brown;
+        }
       }
     }
+    
+    
+
+    .noUserNav {
+      color: $primary-green;
+      &:hover {
+        a {
+          color: $secondary-green;
+          &:hover {
+            color: $primary-green;
+            background-color: $primary-brown;
+          }
+        }
+      }
+      a {
+        display: inline-block;
+        color: $primary-green;
+        &:first-of-type {
+          padding-right: 2px;
+        }
+        &:last-of-type {
+          padding-left: 2px;
+        }
+      }
+    }
+
     form {
       margin-top: 8px;
       margin-left: 8px;
     }
+    
   }
 }
 

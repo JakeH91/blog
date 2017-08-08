@@ -36,23 +36,26 @@
 
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
-        	<li><%= button_to "New Post", new_post_path, {method: "get", :class => "btn btn-success nav-btn"} %></li>
-        	<li><%= link_to "Notifications", '#' %></li>
-        	<li><%= link_to "Messages", '#' %></li>
-          <li>
-          <% if user_signed_in? %>
+        	<li class="userNav"><%= button_to "New Post", new_post_path, {method: "get", :class => "btn btn-success nav-btn"} %></li>
+        	<% if user_signed_in? %>
+          <li class="userNav"><%= link_to "Notifications", '#' %></li>
+        	<li class="userNav"><%= link_to "Messages", '#' %></li>
+          <li class="userNav">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             Account <b class="caret"></b></a>
             <ul class="dropdown-menu">
-              <li><%= link_to "Profile",  current_user %></li>
-              <li><%= link_to "Settings", edit_user_registration_path(current_user) %></li>
+              <li class="userNav"><%= link_to "Profile",  current_user %></li>
+              <li class="userNav"><%= link_to "Settings", edit_user_registration_path(current_user) %></li>
               <li class="divider"></li>
-              <li><%= link_to "Logout",  destroy_user_session_path, method: :delete %></li>
+              <li class="userNav"><%= link_to "Logout",  destroy_user_session_path, method: :delete %></li>
             </ul>
-          <% else %>
-            <%= link_to("Login", new_user_session_path) %>
-          <% end %>
           </li>
+          <% else %>
+            <li class="noUserNav">
+              <%= link_to("Sign In", new_user_session_path) %>/<%= link_to("Sign Up", new_user_registration_path) %>
+            </li>
+          <% end %>
+          
           
         </ul>
       </div> <!-- END navbar-collapse -->
