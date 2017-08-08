@@ -1,3 +1,31 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$primary-brown: #600;
+$primary-green: #38761d;
+$secondary-green: #5cb85c;
+
+.signUpPage {
+	margin: 0 30%;
+	h2 {
+		text-align: center;
+		color: $primary-green;
+	}
+	label {
+		color: $primary-brown;
+		display: inline-block;
+	}
+	.field {
+		input {
+			width: 100%;
+			&:focus {
+			outline: $secondary-green auto 5px;
+			}
+		}
+	}
+	.actions {
+		float: right;
+	}
+
+}
