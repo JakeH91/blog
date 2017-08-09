@@ -7,5 +7,12 @@ Rails.application.routes.draw do
   resources :comments
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get 'posts/new'
-  root 'static_pages#index'
+
+	authenticated :user do
+	  root to: "posts#index", as: :authenticated_root
+	end
+
+	unauthenticated do
+	  root to: "static_pages#index"
+	end
 end

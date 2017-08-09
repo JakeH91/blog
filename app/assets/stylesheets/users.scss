@@ -6,7 +6,8 @@ $primary-brown: #600;
 $primary-green: #38761d;
 $secondary-green: #5cb85c;
 
-.signUpPage {
+.userSignUp,
+.userSignin {
 	margin: 0 30%;
 	h2 {
 		text-align: center;
@@ -23,9 +24,16 @@ $secondary-green: #5cb85c;
 			outline: $secondary-green auto 5px;
 			}
 		}
+		.rememberInput {
+			width: unset;
+		}
 	}
 	.actions {
 		float: right;
+	}
+	#error_explanation,
+	.field_with_errors {
+		width: 100%;
 	}
 
 }
