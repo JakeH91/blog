@@ -42,6 +42,7 @@ gem 'will_paginate', '~> 3.1.0'
 
 #for images
 gem "paperclip", "~> 5.0.0"
+gem 'aws-sdk', '~> 2.10', '>= 2.10.23'
 
 
 group :development, :test do
