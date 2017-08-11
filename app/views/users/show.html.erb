@@ -1,11 +1,73 @@
-<%= image_tag @user.image.url(:medium) %>
+<div class="profile_page">
+	<div class="userHeader">
+		<% if @user.image.exists? %>
+			<%= image_tag @user.image.url(:medium), class: "profilePic" %>
+		<% else %>
+			<div class="noProfilePic">
+				<p>Currently no Profile Picture...</p>
+			</div>
+		<% end %>
 
-<p>
-  <strong>First name:</strong>
-  <%= @user.first_name %>
-</p>
+		<div class="intro">
+			<h2><%= @user.first_name + " " + @user.last_name %></h2>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @user.last_name %>
-</p>
+			<p>
+				<% if @user.bio %>
+					<strong>Bio:</strong>
+					<%= @user.bio %>
+				<% else %>
+					<p>Write a little bit about yourself...</p>
+				<% end %>
+			</p>
+		</div>		
+	</div>
+	
+
+	<div class="userPagePosts">
+		<% if @user.posts.exists? %>
+	    
+	    <% @user.posts.each do |post| %>
+	      <div class="post">
+	      	<div class="postHeader">
+	      		<%= image_tag @user.image.url(:thumb), class: "postUserThumb" %>
+	      		<div class="postInfo">
+		      		<p class="postUserName">
+		      			<%= @user.first_name + " " + @user.last_name %>
+		      		</p>
+		      		<p class="postDate">
+		      			<%= post.created_at.strftime("%d %b") %>
+		      		</p>	
+	      		</div> <!-- END postInfo -->
+	      	</div> <!-- END postHeader -->
+
+	      	<div class="postBody">
+	      		<h4><%= post.title %></h4>
+	      		<p><%= post.content %></p>
+	      	</div> <!-- END postBody -->
+
+	      	<div class="postFooter">
+	      		<p class="postComments">
+		      		<%= post.comments.length %>
+		      		<% if post.comments.length == 1 %>
+		      			comment
+		      		<% else %>
+		      			comments
+		      		<% end %>	
+	      		</p>
+	      		
+	      	</div>
+
+	      </div> <!-- END post -->
+	    <% end %>
+	    <%#= will_paginate @posts %>
+	  <% else %>
+	    <div class="callToAction">
+	    	<p>Currently No Posts</p>
+	    	<%= button_to "Write Your First Post!", new_post_path, {method: "get", :class => "btn btn-primary"} %>
+	    </div>
+	  <% end %>	
+	</div>
+  
+
+<br>
+</div>

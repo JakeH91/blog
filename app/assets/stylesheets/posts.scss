@@ -2,6 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+$primary-brown: #600;
+$primary-green: #38761d;
+$secondary-green: #5cb85c;
+
 .hidden {
 	display: none;
 }
@@ -9,6 +14,8 @@
 .no-border {
 	border: none !important;
 }
+
+// INDEX
 
 .post,
 .post_comments,
@@ -21,69 +28,47 @@
 	overflow: auto;
 }
 
-.post_comments {
-	padding-top: 10px;
-}
+.postHeader {
+	height: 44px;
 
-.post_comment {
-	margin-left: 50px;
-	margin-right: 0;
-	min-height: 50px;
-	border-bottom: 1px dotted lightgray;
-	clear: both;
-}
-
-.post_author,
-.post_comment_author {
-	position: absolute;
-	margin-left: -80px;
-	margin-top: 0;
-	border: 1px solid black;
-	padding: 10px 16px;
-	border-radius: 40px;
-	background-color: white;
-	text-align: center;
-}
-
-.post_comment_author {
-	margin-left: -50px;
-}
-
-.post_comment_see_more {
-	float: right;
-	clear: both;
-	position: relative;
-	top: 11px;
-}
-
-.post_title {
-	margin: 0;
-}
-
-.post_likes {
-	p {
-		display: inline;
+	.postUserThumb {
+		width: 44px;
+		border-radius: 22px;
+		float: left;
 	}
-	
-	float: right;
-}
 
-.post_options {
-	p {
-		display: inline;
+	.postInfo {
+		float: left;
+		margin-left: 10px;
 	}
-	float: right;
-	clear: both;
-}
 
-.post_data {
-	float: left;
-	p {
-		margin: 0;
-		color: grey;
-		font-size: 12px;
+	.postUserName {
+		font-size: 15px;
+		float: left;
+		margin-bottom: 0;
+		color: $primary-green;
+	}
+
+	.postDate {
+		clear: both;
+		margin-bottom: 7px;
+		color: #BBB;
 	}
 }
+
+
+
+.postBody {
+	margin-left: 20px;
+}
+
+.postFooter {
+	.postComments {
+		float: right;
+	}
+}
+
+
 
 // SHOW
 .show-post {

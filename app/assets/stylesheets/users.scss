@@ -37,3 +37,45 @@ $secondary-green: #5cb85c;
 	}
 
 }
+
+.profile_page {
+	margin: 30px 10%;
+}
+
+.userHeader {
+	background-color: white;
+}
+
+
+.profilePic,
+.noProfilePic {
+	width: 200px;
+	height: 300px;
+	float: left;
+	display: inline-block;
+}
+
+.noProfilePic {
+	border: 3px solid $primary-green;
+	border-radius: 5px;
+	p {
+		padding: 0 auto;
+		margin: 138px 0;
+	}
+}
+
+.intro {
+	display: inline-block;
+	height: 300px;
+	width: 70%;
+	padding-top: 100px;
+	margin-left: 30px;
+	h2,
+	p {
+		text-align: center;
+	}
+}
+
+.userPagePosts {
+	margin-top: 30px;
+}

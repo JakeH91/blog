@@ -13,34 +13,38 @@
     </li>
     
     <% @posts.each do |post| %>
-      <div class="post">
-        <p class="post_author"><%= post.user.first_name[0, 1] %></p>
-        <h3 class="post_title"><%= link_to post.title, post %></h3>
-        
-        <p class="post_content"><%= post.content %></p>
-        <p class="hidden"><%= post.date_of_event %></p>
-        <p class="hidden"><%= post.location %></p>
-        <div class="post_likes">
-          <p>Likes: <%= post.likes %></p>
-          <p>Dislikes: <%= post.dislikes %></p>
-        </div>
+        <div class="post">
+          <div class="postHeader">
+            <%= image_tag post.user.image.url(:thumb), class: "postUserThumb" %>
+            <div class="postInfo">
+              <p class="postUserName">
+                <%= post.user.first_name + " " + post.user.last_name %>
+              </p>
+              <p class="postDate">
+                <%= post.created_at.strftime("%d %b") %>
+              </p>  
+            </div> <!-- END postInfo -->
+          </div> <!-- END postHeader -->
 
-      </div>
-      <div class="post_comments">
-        <h5><strong>Comments</strong></h5>
-        <% if post.comments.exists? %>
-          <div class="post_comment no-border">
-            <p class="post_comment_author"><%= post.comments.last.user.first_name[0, 1] %></p>
-            <p class="post_comment_content"><%= post.comments.last.content %></p>
-            <p class="post_comment_see_more"><%= link_to 'See More', post %></p>
+          <div class="postBody">
+            <h4><%= post.title %></h4>
+            <p><%= post.content %></p>
+          </div> <!-- END postBody -->
+
+          <div class="postFooter">
+            <p class="postComments">
+              <%= post.comments.length %>
+              <% if post.comments.length == 1 %>
+                comment
+              <% else %>
+                comments
+              <% end %> 
+            </p>
+            
           </div>
 
-        <% else %>
-          <p>Currently No Comments</p>
-        <% end %>
-      </div>
-
-    <% end %>
+        </div> <!-- END post -->
+      <% end %>
     <%= will_paginate @posts %>
   <% else %>
     <p>Currently No Posts</p>
