@@ -8,15 +8,15 @@ class PostsController < ApplicationController
     if params[:order]
       #order the posts
       order = params[:order]
-      if order == "newSub" 
-        @posts = Post.paginate(:page => params[:page], :per_page => 10).order("created_at DESC")
+      if order == "oldSub" 
+        @posts = Post.paginate(:page => params[:page], :per_page => 10)
       elsif order == "oldEv"
         @posts = Post.paginate(:page => params[:page], :per_page => 10).order("date_of_event DESC")
       elsif order == "newEv"
         @posts = Post.paginate(:page => params[:page], :per_page => 10).order("date_of_event ASC")
       end
     else
-      @posts = Post.paginate(:page => params[:page], :per_page => 10)
+      @posts = Post.paginate(:page => params[:page], :per_page => 10).order("created_at DESC")
     end
   end
 

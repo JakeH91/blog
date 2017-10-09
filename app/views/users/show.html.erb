@@ -25,7 +25,7 @@
 
 	<div class="userPagePosts">
 		<% if @user.posts.exists? %>
-	    
+	    <h4 class="postIntro">Submission History</h4>
 	    <% @user.posts.each do |post| %>
 	      <div class="post">
 	      	<div class="postHeader">

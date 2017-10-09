@@ -33,7 +33,10 @@ $secondary-green: #5cb85c;
 
 	.postUserThumb {
 		width: 44px;
+		height: 44px;
+		overflow: hidden;
 		border-radius: 22px;
+		border: 1px solid black;
 		float: left;
 	}
 

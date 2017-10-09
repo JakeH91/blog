@@ -5,8 +5,8 @@
     <li class="dropdown">
       <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sort By<b class="caret"></b></a>
       <ul class="dropdown-menu">
-        <li><%= link_to "Newest(Submitted)", posts_path(order: "newSub") %></li>
-        <li><%= link_to "Oldest(Submitted)", posts_path %></li>
+        <li><%= link_to "Newest(Submitted)", posts_path %></li>
+        <li><%= link_to "Oldest(Submitted)", posts_path(order: "oldSub") %></li>
         <li><%= link_to "Newest(Event)", posts_path(order: "newEv") %></li>
         <li><%= link_to "Oldest(Event)", posts_path(order: "oldEv") %></li>
       </ul>
@@ -15,10 +15,10 @@
     <% @posts.each do |post| %>
         <div class="post">
           <div class="postHeader">
-            <%= image_tag post.user.image.url(:thumb), class: "postUserThumb" %>
+            <%= link_to (image_tag post.user.image.url(:thumb), class: "postUserThumb"), user_path(post.user.id) %>
             <div class="postInfo">
               <p class="postUserName">
-                <%= post.user.first_name + " " + post.user.last_name %>
+                <%= link_to (post.user.first_name + " " + post.user.last_name), user_path(post.user.id) %>
               </p>
               <p class="postDate">
                 <%= post.created_at.strftime("%d %b") %>
@@ -27,18 +27,20 @@
           </div> <!-- END postHeader -->
 
           <div class="postBody">
-            <h4><%= post.title %></h4>
+            <h4><%= link_to (post.title), post %></h4>
             <p><%= post.content %></p>
           </div> <!-- END postBody -->
 
           <div class="postFooter">
             <p class="postComments">
-              <%= post.comments.length %>
-              <% if post.comments.length == 1 %>
-                comment
-              <% else %>
-                comments
-              <% end %> 
+              <%= link_to(post_path(post, anchor: "commentsAnchor")) do %>
+                <%= post.comments.length %>
+                <% if post.comments.length == 1 %>
+                  comment
+                <% else %>
+                  comments
+                <% end %>
+              <% end %>
             </p>
             
           </div>

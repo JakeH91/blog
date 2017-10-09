@@ -27,7 +27,7 @@
 </div>
 
 <div class="post_comments">
-  <h5><strong>Comments</strong></h5>
+  <h5 id="commentsAnchor"><strong>Comments</strong></h5>
     <%= render "comments/form", comment: @comment %>
     <% if @post.comments.exists? %>
       <% if @post.comments.length > 1 %>
@@ -50,7 +50,7 @@
 
 
 <div class="post_options">
-  <% if current_user.id == @post.user_id %>
+  <% if (current_user) && (current_user.id == @post.user_id) %>
     <%= link_to 'Edit', edit_post_path(@post) %> |
   <% end %>
   <%= link_to 'Back', posts_path %>
