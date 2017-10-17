@@ -6,6 +6,12 @@ class User < ApplicationRecord
 	has_many :posts
 	has_many :comments
 
-	has_attached_file :image, styles: { large: "600x600>", medium: "300x300>", thumb: "150x150#" }
-	validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
+	has_attached_file :avatar,
+										styles: { 
+											thumb: "100x100>",
+											medium: "300x300>",
+											large: "400x400" }
+
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
+
 end

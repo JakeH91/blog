@@ -1,7 +1,7 @@
 <div class="profile_page">
 	<div class="userHeader">
-		<% if @user.image.exists? %>
-			<%= image_tag @user.image.url(:medium), class: "profilePic" %>
+		<% if @user.avatar.exists? %>
+			<%= image_tag @user.avatar.url(:medium), class: "profilePic" %>
 		<% else %>
 			<div class="noProfilePic">
 				<p>Currently no Profile Picture...</p>
@@ -15,8 +15,10 @@
 				<% if @user.bio %>
 					<strong>Bio:</strong>
 					<%= @user.bio %>
+				<% elsif can? :update, @user %>
+					<p><%= link_to ("Write a little bit about yourself..."), edit_user_path(@user.id) %></p>
 				<% else %>
-					<p>Write a little bit about yourself...</p>
+					<p>This users Bio is currently empty...</p>
 				<% end %>
 			</p>
 		</div>		
@@ -29,7 +31,7 @@
 	    <% @user.posts.each do |post| %>
 	      <div class="post">
 	      	<div class="postHeader">
-	      		<%= image_tag @user.image.url(:thumb), class: "postUserThumb" %>
+	      		<%= image_tag @user.avatar.url(:thumb), class: "postUserThumb" %>
 	      		<div class="postInfo">
 		      		<p class="postUserName">
 		      			<%= @user.first_name + " " + @user.last_name %>
