@@ -1,4 +1,5 @@
 <%= form_for @comment, :url => post_comments_path(@post) do |f| %>
+  <!--   Produce errors if necessary -->
   <% if comment.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
@@ -20,15 +21,16 @@
     <%= f.submit %>
   </div>
 
-  <div class="field hidden">
-    <%= f.label :likes %>
-    <%= f.number_field :likes %>
+  <!-- Possibility for likes and dislikes/upvotes and downvotes. Currently not implemented -->
+  <!-- <div class="field hidden">
+    <%#= f.label :likes %>
+    <%#= f.number_field :likes %>
   </div>
 
   <div class="field hidden">
-    <%= f.label :dislikes %>
-    <%= f.number_field :dislikes %>
-  </div>
+    <%#= f.label :dislikes %>
+    <%#= f.number_field :dislikes %>
+  </div> -->
 
   
 <% end %>
