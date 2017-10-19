@@ -6,16 +6,20 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     if params[:order]
-      #order the posts
+      # Order the posts (will change in future)
       order = params[:order]
       if order == "oldSub" 
+        # Order by time submitted (oldest first)
         @posts = Post.paginate(:page => params[:page], :per_page => 10)
       elsif order == "oldEv"
+        # Order by least recent event (posts can be dated according to when the event took place)
         @posts = Post.paginate(:page => params[:page], :per_page => 10).order("date_of_event DESC")
       elsif order == "newEv"
+        # Order by most recent event
         @posts = Post.paginate(:page => params[:page], :per_page => 10).order("date_of_event ASC")
       end
     else
+      # Order by time submitted (newest first)
       @posts = Post.paginate(:page => params[:page], :per_page => 10).order("created_at DESC")
     end
   end

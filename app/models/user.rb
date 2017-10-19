@@ -9,6 +9,7 @@ class User < ApplicationRecord
 	validates :first_name, :last_name, :email, :presence => true
 	validates :email, :uniqueness => { :case_sensitive => false }
 
+	# Image attachment using Paperclip
 	has_attached_file :avatar,
 										styles: { 
 											thumb: "100x100>",
