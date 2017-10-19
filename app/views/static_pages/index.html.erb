@@ -5,6 +5,7 @@
 	<p>Come and join our growing community of traveling writers, see what the world has to offer and take part yourself!</p>
 
 	
+	<!-- The Read-Write-Connect area (links to various parts of the site) -->
 	<div class="row">
 		<div class="col-sm-4 col-xs-12 icon">
 			<%= link_to posts_path do %>
@@ -26,6 +27,7 @@
 			<p>Tell the world where you've been and what you got up to. Write about a single place, or take us on the entire adventure!</p>
 		</div> <!-- END icon -->
 		
+		<!-- Eventually, this will link to user index to add friends/send messages etc -->
 		<div class="col-sm-4 col-xs-12 icon">
 			<div>
 				<%= image_tag("connect.png") %>	
@@ -35,6 +37,8 @@
 		</div> <!-- END icon -->
 	</div> <!-- END row -->
 
+
+	<!-- Sign up Call to Action -->
 	<div class="callToAction">
 		<h4>Sign up now and start taking part.</h4>
 		<%= button_to "Sign Up", new_user_registration_path, {method: "get", :class => "btn btn-primary"} %>
