@@ -1,23 +1,31 @@
+<!-- User Profile Page -->
 <div class="profile_page">
 	<div class="userHeader">
+		<!-- If user has a profile picture, display it... -->
 		<% if @user.avatar.exists? %>
 			<%= image_tag @user.avatar.url(:medium), class: "profilePic" %>
 		<% else %>
+		<!-- If not, display message -->
 			<div class="noProfilePic">
 				<p>Currently no Profile Picture...</p>
 			</div>
 		<% end %>
 
 		<div class="intro">
+			<!-- Profile Header -->
 			<h2><%= @user.first_name + " " + @user.last_name %></h2>
 
 			<p>
+				<!-- If the user has a bio, display it -->
 				<% if @user.bio %>
 					<strong>Bio:</strong>
 					<%= @user.bio %>
 				<% elsif can? :update, @user %>
+					<!-- Otherwise, if they are able to make one (either an admin or the owner of the profile in question) -->
+					<!-- Allow user to create a bio -->
 					<p><%= link_to ("Write a little bit about yourself..."), edit_user_path(@user.id) %></p>
 				<% else %>
+					<!-- If the do not have access, display message -->
 					<p>This users Bio is currently empty...</p>
 				<% end %>
 			</p>
@@ -26,6 +34,7 @@
 	
 
 	<div class="userPagePosts">
+		<!-- If the user has posts, display them -->
 		<% if @user.posts.exists? %>
 	    <h4 class="postIntro">Submission History</h4>
 	    <% @user.posts.each do |post| %>
@@ -63,6 +72,7 @@
 	    <% end %>
 	    <%#= will_paginate @posts %>
 	  <% else %>
+	  <!-- If user has no posts, display message and link to new post page -->
 	    <div class="callToAction">
 	    	<p>Currently No Posts</p>
 	    	<%= button_to "Write Your First Post!", new_post_path, {method: "get", :class => "btn btn-primary"} %>
