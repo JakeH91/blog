@@ -2,10 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// Main colour scheme
 $primary-brown: #600;
 $primary-green: #38761d;
 $secondary-green: #5cb85c;
 
+
+// NEW USER
 .userSignUp,
 .userSignin {
 	margin: 0 30%;
@@ -38,6 +41,8 @@ $secondary-green: #5cb85c;
 
 }
 
+
+// SHOW USER
 .profile_page {
 	margin: 30px 10%;
 }
@@ -83,3 +88,6 @@ $secondary-green: #5cb85c;
 	}
 	margin-top: 30px;
 }
+
+
+// USER INDEX
